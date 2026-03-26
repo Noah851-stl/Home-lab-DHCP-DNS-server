@@ -1,0 +1,40 @@
+## Named.conf.options
+
+options {
+    directory "/var/cache/bind";
+    
+    # Listen on internal network interface
+    listen-on { 
+        192.168.129.2; 
+        127.0.0.1; 
+    };
+    listen-on-v6 { none; };
+    
+    # Allow queries from internal network
+    allow-query { 
+        192.168.129.0/24; 
+        127.0.0.1; 
+    };
+    
+    # Forward queries to Google DNS
+    forwarders {
+        8.8.8.8;
+        8.8.4.4;
+    };
+    
+    # Only use forwarders (don't query root servers)
+    forward only;
+    
+    # Enable recursion for internal clients
+    recursion yes;
+    
+    # Disable DNSSEC to avoid validation issues
+    dnssec-validation no;
+    
+    # Additional security
+    allow-recursion { 192.168.129.0/24; 127.0.0.1; };
+    allow-query-cache { 192.168.129.0/24; 127.0.0.1; };
+    
+    # Hide version information
+    version "not disclosed";
+};
