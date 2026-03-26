@@ -1,0 +1,23 @@
+bash
+;
+; BIND data file for home.lab domain
+;
+$TTL    604800
+@       IN      SOA     ns1.home.lab. admin.home.lab. (
+                  2026032601         ; Serial (YYYYMMDDNN)
+                  604800              ; Refresh (1 week)
+                  86400               ; Retry (1 day)
+                  2419200             ; Expire (4 weeks)
+                  604800 )            ; Negative Cache TTL (1 week)
+;
+; Name Servers
+@       IN      NS      ns1.home.lab.
+
+; A Records - Map names to IP addresses
+@       IN      A       192.168.129.2          ; home.lab
+ns1     IN      A       192.168.129.2          ; ns1.home.lab
+client  IN      A       192.168.129.100        ; client.home.lab
+web     IN      A       192.168.129.2          ; web.home.lab
+
+; CNAME Records - Aliases
+www     IN      CNAME   web.home.lab.          ; www.home.lab -> web.home.lab
