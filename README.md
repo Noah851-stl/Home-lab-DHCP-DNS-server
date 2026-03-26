@@ -100,6 +100,13 @@ sudo iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 
 ---
 
+## 🧠 What I Learned
+
+- Configured DHCP server to assign dynamic IP addresses
+- Implemented DNS resolution using BIND9
+- Enabled NAT for internet access
+- Troubleshot network connectivity issues
+  
 ## 🧑‍💻 Author
 
 SHIN - DevOps Learner 🚀
