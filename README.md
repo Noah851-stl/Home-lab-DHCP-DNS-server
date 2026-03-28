@@ -37,6 +37,16 @@ The lab simulates a real-world internal network with centralized network service
 * Isolated internal network (Host-Only)
 
 ---
+## 🔄 NAT Flow Explanation
+
+The client sends traffic using a private IP (192.168.129.x), which cannot be routed on the internet.  
+The Ubuntu server performs NAT (MASQUERADE), replacing the source IP with its public IP (172.20.10.x).
+
+Flow:
+1. Client → Gateway (Ubuntu Server)
+2. NAT translates private IP → public IP
+3. Internet responds to server
+4. Server translates back → Client
 
 ## 🧰 Technologies Used
 
